@@ -197,7 +197,7 @@ def run_analysis():
 if __name__ == "__main__":
     logger.info("BOT INICIADO - TRADING 24/7")
     schedule.every(CONFIG['poll_interval_minutes']).minutes.do(run_analysis)
-    schedule.every(1).minutes.do(send_profit_report)  # Cada minuto
+    schedule.every(2).hours.do(send_profit_report)  # Cada 2 horas
     run_analysis()  # Primera ejecución
     while True:
         schedule.run_pending()
