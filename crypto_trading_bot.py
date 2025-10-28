@@ -167,13 +167,13 @@ class Notifier:
         self.bot = Bot(token=CONFIG['telegram_token'])
 
     def send(self, msg):
-        if msg:
-            try:
-                import asyncio
-                asyncio.run(self.bot.send_message(chat_id=CONFIG['telegram_chat_id'], text=msg))
-                logger.info(f"Enviado a Telegram: {msg}")
-            except Exception as e:
-                logger.error(f"Error Telegram: {e}")
+            if msg:
+                try:
+                    import asyncio
+                    asyncio.run(self.bot.send_message(chat_id=CONFIG['telegram_chat_id'], text=msg))
+                    logger.info(f"Enviado a Telegram: {msg}")
+                except Exception as e:
+                    logger.error(f"Error Telegram: {e}")
 
 # === REPORTE DE GANANCIAS ===
 def send_profit_report():
